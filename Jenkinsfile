@@ -5,7 +5,7 @@ pipeline {
 
         stage('Clone Repository') {
             steps {
-                git branch: 'main', url: 'https://github.com/Micky23-byte/Django-Ecommerce.git'
+                git branch: 'master', url: 'https://github.com/Micky23-byte/Django-Ecommerce.git'
             }
         }
 
@@ -37,16 +37,6 @@ pipeline {
             }
         }
 
-        stage('Run Tests (Optional)') {
-            steps {
-                sh '''
-                    . venv/bin/activate
-                    python manage.py test || true
-                '''
-            }
-        }
-
-        // You can remove this stage if you're deploying instead
         stage('Run Server') {
             steps {
                 sh '''
